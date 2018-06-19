@@ -47,7 +47,7 @@ def decode_nospace(words_saw, chars_saw, code_left):
 		return
 	if len(words_saw) > 2 and words_saw[-1] == words_saw[-2]:
 		return
-	if len(words_saw) > 4 and len("".join(words_saw[-5:])) < 10:
+	if len(words_saw) > 4 and len("".join(words_saw[-7:])) < 15:
 		return
 	if chars_saw in WORDS:
 		words_saw.append(chars_saw)
