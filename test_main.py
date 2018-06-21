@@ -1,14 +1,9 @@
 from Morse import *
-from Corpus import WORDS, MAX_WORD_LEN, WORD_PREFIX
+from Corpus import test_string, WORDS, MAX_WORD_LEN, WORD_PREFIX
 from Encode import encode, encode_nospace
 from Decode import decode, decode_nospace
 
-test_string = '''Alice was beginning to get very tired of sitting by her sister on the bank,
- and of having nothing to do: once or twice she had peeped into the book her sister was reading, 
- but it had no pictures or conversations in it, "and what is the use of a book,"
- thought Alice "without pictures or conversation?"'''
-
 print(encode(test_string))
-print(encode_nospace(test_string))
+# print(encode_nospace(test_string))
 
 print(decode(encode(test_string)))
