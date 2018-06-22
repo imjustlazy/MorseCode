@@ -3,12 +3,17 @@ from Corpus import WORDS, MAX_WORD_LEN, WORD_PREFIX
 import re
 import pdb
 
+min_words_list = []
+
 def try_reconginize(words_saw , char_left):
     """
     print lists of possible word-list from a list of characters
     """
+    global min_words_list
     if len(char_left) == 0:
-        print(words_saw)
+        # print(words_saw)
+        if len(words_saw) < len(min_words_list):
+            min_words_list = words_saw.copy()
         return
     for i in range(min(len(char_left), MAX_WORD_LEN)):
         if char_left[:i+1] in WORDS:
@@ -23,12 +28,16 @@ def decode(code_string):
     """
     # code_string may contains more spaces if non-alphabet exists in original txt_string, both of next teo lines work
     # code_list = re.split(r" +", code_string)[:-1]
+    global min_words_list
     code_list = list(filter(lambda x: x != "", code_string.split(" ")))
     characters = ""
-    for i, code in enumerate(code_list):
+    for code in code_list:
         characters += MORSE_DECODE[code]
-    print(characters)
+    # print(characters)
+    min_words_list = list(characters)
     try_reconginize([], characters)
+    print(min_words_list)
+
 
 def decode_nospace(words_saw, chars_saw, code_left):
 	"""

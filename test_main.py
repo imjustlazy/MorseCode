@@ -1,4 +1,4 @@
-from Morse import *
+# from Morse import *
 from Corpus import test_string, WORDS, MAX_WORD_LEN, WORD_PREFIX
 from Encode import encode, encode_nospace
 from Decode import decode, decode_nospace
