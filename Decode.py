@@ -26,17 +26,16 @@ def decode(code_string):
     returns a list of possible decode ways
     every word in every candidate word-list truly exists
     """
-    # code_string may contains more spaces if non-alphabet exists in original txt_string, both of next teo lines work
-    # code_list = re.split(r" +", code_string)[:-1]
     global min_words_list
-    code_list = list(filter(lambda x: x != "", code_string.split(" ")))
-    characters = ""
-    for code in code_list:
-        characters += MORSE_DECODE[code]
-    # print(characters)
+    # code_string may contains more spaces if non-alphabet exists in original txt_string, both of next two lines work
+    # code_list = re.split(r" +", code_string)[:-1]
+    # code_list = list(filter(lambda x: x != "", code_string.split(" ")))
+    # changed encode() so above situation won't emerge, do that simply in the way below
+    characters = "".join([MORSE_DECODE[code] for code in code_string.split(" ")])
+    print(characters)
     min_words_list = list(characters)
     try_reconginize([], characters)
-    print(min_words_list)
+    print(min_words_list, len(min_words_list))
 
 
 def decode_nospace(words_saw, chars_saw, code_left):

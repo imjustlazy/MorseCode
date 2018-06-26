@@ -6,4 +6,4 @@ from Decode import decode, decode_nospace
 print(encode(test_string))
 # print(encode_nospace(test_string))
 
-print(decode(encode(test_string)))
+decode(encode(test_string))
