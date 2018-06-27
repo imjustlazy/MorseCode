@@ -9,16 +9,18 @@ def try_reconginize(words_saw , char_left):
     """
     print lists of possible word-list from a list of characters
     """
+    # print("\nin trying: words_saw:", words_saw, "\nchar_left:", char_left)
     global min_words_list
     if len(char_left) == 0:
-        # print(words_saw)
+        # print("renew the answer!!!!!!")
         if len(words_saw) < len(min_words_list):
             min_words_list = words_saw.copy()
         return
     for i in range(min(len(char_left), MAX_WORD_LEN), 0, -1):
-        if char_left[:i+1] in WORDS:
-            words_saw.append(char_left[:i+1])
-            try_reconginize(words_saw, char_left[i+1:])
+        if char_left[:i] in WORDS:
+            words_saw.append(char_left[:i])
+            try_reconginize(words_saw, char_left[i:])
+            words_saw.pop()
 
 
 def decode(code_string):
@@ -34,6 +36,7 @@ def decode(code_string):
     characters = "".join([MORSE_DECODE[code] for code in code_string.split(" ")])
     print(characters)
     min_words_list = list(characters)
+    # pdb.set_trace()
     try_reconginize([], characters)
     print(min_words_list, len(min_words_list))
 

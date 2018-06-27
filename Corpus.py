@@ -26,7 +26,7 @@ def load_words_test():
         guaranty = set(re.findall(r'[a-z]+', test_string.lower()))
     return guaranty
 
-WORDS = load_words_test()
+WORDS = load_words()
 
 # A set of all possible prefixes of English words.
 WORD_PREFIX = set(word[:j+1] for word in WORDS for j in range(len(word)))
