@@ -12,7 +12,7 @@ def load_words():
     # print(locals())
     if "test_string" in globals().keys():
         guaranty = set(re.findall(r'[a-z]+', test_string.lower()))
-    print(guaranty)
+    # print(guaranty)
     ALL = set(re.findall(r'[a-z]+', open('Data/words_alpha.txt').read().lower()))
     LONG = set(x for x in ALL if len(x) >= 4)
     CORPUS = set(re.findall(r'[a-z]+', open('Data/corpus.txt').read().lower()))
